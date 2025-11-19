@@ -120,34 +120,3 @@ npm run format
 # Check formatting
 npm run format:check
 ```
-
-## Built with Kiro
-
-This project was built using [Kiro](https://kiro.dev), an AI-powered IDE that accelerates development through:
-
-- **Spec-Driven Development** - Structured requirements, design, and task planning
-- **Vibe Coding** - Natural language code generation
-- **Agent Hooks** - Automated testing and quality checks
-- **Steering Docs** - Consistent AI output across the project
-- **MCP Integration** - Extended capabilities for API interactions
-
-See `.kiro/specs/` for the complete specification documents.
-
-## License
-
-MIT License - see LICENSE file for details
-
-## Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request.
-
-## Acknowledgments
-
-- Built for the Kiro Hackathon 2024
-- Powered by OpenAI GPT-4
-- GitHub API integration via Octokit
-- Database and auth by Supabase
-
----
-
-**Made with ❤️ using Kiro**
