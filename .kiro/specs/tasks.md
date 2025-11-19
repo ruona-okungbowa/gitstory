@@ -44,20 +44,20 @@ This document outlines the day-by-day implementation plan for GitStory over 18 d
 
   - _Time: 5 hours_
 
-- [ ] 3. Authentication Flow
-  - [ ] 3.1 Implement GitHub OAuth flow
+- [x] 3. Authentication Flow
+  - [x] 3.1 Implement GitHub OAuth flow
     - Create /api/auth/github route to initiate OAuth
     - Create /api/auth/callback route to handle callback
     - Store user data in Supabase users table
     - _Requirements: 1.1_
 
-  - [ ] 3.2 Create session management
+  - [x] 3.2 Create session management
     - Implement JWT token handling with Supabase Auth
     - Create middleware for protected routes
     - Add logout functionality
     - _Requirements: 1.1_
 
-  - [ ] 3.3 Build authentication UI components
+  - [x] 3.3 Build authentication UI components
     - Create login page with GitHub button
     - Create user menu with avatar and logout
     - Add loading states for auth operations
@@ -66,13 +66,13 @@ This document outlines the day-by-day implementation plan for GitStory over 18 d
   - _Time: 6 hours_
 
 - [ ] 4. GitHub Integration
-  - [ ] 4.1 Create GitHub API client
+  - [x] 4.1 Create GitHub API client
     - Setup Octokit with user's OAuth token
     - Implement rate limit handling
     - Add error handling and retries
     - _Requirements: 1.1_
 
-  - [ ] 4.2 Implement repository fetching
+  - [x] 4.2 Implement repository fetching
     - Create /api/github/repos endpoint
     - Fetch user's public repositories
     - Extract metadata: name, description, languages, stars, forks
