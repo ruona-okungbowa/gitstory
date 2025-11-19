@@ -65,7 +65,7 @@ This document outlines the day-by-day implementation plan for GitStory over 18 d
 
   - _Time: 6 hours_
 
-- [ ] 4. GitHub Integration
+- [x] 4. GitHub Integration
   - [x] 4.1 Create GitHub API client
     - Setup Octokit with user's OAuth token
     - Implement rate limit handling
@@ -79,13 +79,13 @@ This document outlines the day-by-day implementation plan for GitStory over 18 d
     - Store in projects table
     - _Requirements: 1.1, 1.2_
 
-  - [ ] 4.3 Implement commit history analysis
+  - [x] 4.3 Implement commit history analysis
     - Fetch commit history for selected repos
     - Extract: commit count, last commit date, contributors
     - Calculate commit frequency and consistency
     - _Requirements: 1.2_
 
-  - [ ] 4.4 Build projects list UI
+  - [x] 4.4 Build projects list UI
     - Create ProjectsPage component
     - Display repos with tech stack badges
     - Add "Analyze" button for each project
@@ -94,8 +94,8 @@ This document outlines the day-by-day implementation plan for GitStory over 18 d
 
   - _Time: 8 hours_
 
-- [ ] 5. Portfolio Scoring Algorithm
-  - [ ] 5.1 Implement scoring logic
+- [x] 5. Portfolio Scoring Algorithm
+  - [x] 5.1 Implement scoring logic
     - Create calculatePortfolioScore function
     - Calculate project quality score (complexity, stars, activity)
     - Calculate tech diversity score (number of languages/frameworks)
@@ -104,7 +104,7 @@ This document outlines the day-by-day implementation plan for GitStory over 18 d
     - Combine into overall score (0-100)
     - _Requirements: 1.3_
 
-  - [ ] 5.2 Create /api/analysis/portfolio-score endpoint
+  - [x] 5.2 Create /api/analysis/portfolio-score endpoint
     - Accept user ID as input
     - Fetch all user's projects
     - Calculate score using algorithm
@@ -112,7 +112,7 @@ This document outlines the day-by-day implementation plan for GitStory over 18 d
     - Return score with breakdown
     - _Requirements: 1.3_
 
-  - [ ] 5.3 Build PortfolioScoreCard component
+  - [x] 5.3 Build PortfolioScoreCard component
     - Display overall score with circular progress
     - Show breakdown by category with progress bars
     - Display actionable feedback for improvement

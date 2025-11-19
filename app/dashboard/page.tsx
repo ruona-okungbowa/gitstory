@@ -1,5 +1,6 @@
 "use client";
 
+import PortfolioScoreCard from "@/components/PortfolioScoreCard";
 import { useAuth } from "@/lib/auth/AuthProvider";
 
 export default function DashboardPage() {
@@ -18,6 +19,9 @@ export default function DashboardPage() {
       <h1 className="text-3xl font-bold mb-4">Dashboard</h1>
       <p>Welcome, {user.user_metadata.user_name}!</p>
       <p className="text-gray-600">Email: {user.email}</p>
+      <div className="grid md:grid-cols-2 gap-6">
+        <PortfolioScoreCard />
+      </div>
     </div>
   );
 }
