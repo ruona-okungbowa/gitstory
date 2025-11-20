@@ -1,0 +1,85 @@
+{
+  "frontend": {
+    "title": "Frontend Developer",
+    "essential": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Git",
+      "JavaScript Framework (React, Vue or Angular)",
+      "Version Control (Git)"
+    ],
+    "preferred": [
+      "TypeScript",
+      "Tailwind CSS",
+      "Testing",
+      "Next.js",
+      "Accessibility"
+    ],
+    "niceToHave": [
+      "Build Tools (Vite, Webpack)",
+      "Performance Optimisation",
+      "State management (Redux, Zustand)"
+    ]
+  },
+  "backend": {
+    "title": "Backend Developer",
+    "essential": [
+      "Sever-side language (Node.js,Python,Java)",
+      "Version Control (Git/Github)",
+      "Databases (SQL/NoSQL)",
+      "REST API"
+    ],
+    "preferred": [
+      "Authentication (JWT OAuth)",
+      "Testing",
+      "Cloud Platforms (AWS, Azure, GCP)",
+      "Containerisation (Docker)"
+    ],
+    "niceToHave": [
+      "GraphQL API",
+      "Microservices architecture",
+      "Message Queues (RabbitMQ, Kafka)",
+      "Caching (Redis, Memcached)"
+    ]
+  },
+  "fullstack": {
+    "title": "Full-Stack Developer",
+    "essential": [
+      "Frontend Essentials (HTML, CSS, JS, Framework)",
+      "Backend Essentials",
+      "Version Control (Git)"
+    ],
+    "preferred": [
+      "End-to-end development",
+      "Deployment & DevOps basics (CI/CD, Docker)",
+      "Database design & management"
+    ],
+    "niceToHave": [
+      "Infrastructure as Code/ DevOps",
+      "System Design & Scalability",
+      "Microservices architecture"
+    ]
+  },
+  "devops": {
+    "title": "DevOps Engineer",
+    "essential": [
+      "Linux",
+      "Containerisation (Docker)",
+      "CI/CD Piplines",
+      "Cloud Platforms (AWS, Azure)",
+      "Scripting (Bash, Python)"
+    ],
+    "preferred": [
+      "Kubernetes",
+      "Infrastructure as Code",
+      "Monitoring & Logging",
+      "Security & DevOps Practices"
+    ],
+    "niceToHave": [
+      "Service Mesh",
+      "Chaos Engineering",
+      "Cloud Cost Optimisation"
+    ]
+  }
+}

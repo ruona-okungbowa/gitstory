@@ -24,21 +24,45 @@ export async function GET(request: Request) {
 
     const scoreData = calculatePortfolioScore(projects || []);
 
-    const { error: insertError } = await supabase
+    // Check if a score already exists for this user
+    const { data: existingScore } = await supabase
       .from("portfolio_scores")
-      .insert({
-        user_id: user.id,
-        overall_score: scoreData.overallScore,
-        project_quality_score: scoreData.projectQualityScore,
-        tech_diversity_score: scoreData.techDiversityScore,
-        documentation_score: scoreData.documentationScore,
-        consistency_score: scoreData.consistencyScore,
-        breakdown: scoreData.breakdown,
-        calculated_at: new Date().toISOString(),
-      });
+      .select("id")
+      .eq("user_id", user.id)
+      .order("calculated_at", { ascending: false })
+      .limit(1)
+      .single();
 
-    if (insertError) {
-      console.error("Error storing portfolio score:", insertError);
+    const scoreRecord = {
+      user_id: user.id,
+      overall_score: scoreData.overallScore,
+      project_quality_score: scoreData.projectQualityScore,
+      tech_diversity_score: scoreData.techDiversityScore,
+      documentation_score: scoreData.documentationScore,
+      consistency_score: scoreData.consistencyScore,
+      breakdown: scoreData.breakdown,
+      calculated_at: new Date().toISOString(),
+    };
+
+    if (existingScore) {
+      // Update existing score
+      const { error: updateError } = await supabase
+        .from("portfolio_scores")
+        .update(scoreRecord)
+        .eq("id", existingScore.id);
+
+      if (updateError) {
+        console.error("Error updating portfolio score:", updateError);
+      }
+    } else {
+      // Insert new score
+      const { error: insertError } = await supabase
+        .from("portfolio_scores")
+        .insert(scoreRecord);
+
+      if (insertError) {
+        console.error("Error storing portfolio score:", insertError);
+      }
     }
 
     return NextResponse.json(scoreData);

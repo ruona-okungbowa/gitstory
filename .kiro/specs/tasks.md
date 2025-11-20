@@ -176,7 +176,7 @@ This document outlines the day-by-day implementation plan for GitStory over 18 d
     - Create prompt templates
     - _Requirements: 2.1, 3.1_
 
-  - [ ] 7.2 Create content generation utilities
+  - [x] 7.2 Create content generation utilities
     - Build prompt builder for different content types
     - Implement response parsing and validation
     - Add caching layer for generated content
@@ -185,7 +185,7 @@ This document outlines the day-by-day implementation plan for GitStory over 18 d
   - _Time: 4 hours_
 
 - [ ] 8. STAR Story Generation
-  - [ ] 8.1 Implement story generation logic
+  - [x] 8.1 Implement story generation logic
     - Create /api/ai/story endpoint
     - Analyze project: tech stack, complexity, features
     - Generate STAR format story using OpenAI
@@ -210,7 +210,7 @@ This document outlines the day-by-day implementation plan for GitStory over 18 d
   - _Time: 6 hours_
 
 - [ ] 9. Resume Bullet Generation
-  - [ ] 9.1 Implement bullet generation logic
+  - [x] 9.1 Implement bullet generation logic
     - Create /api/ai/bullets endpoint
     - Analyze project for quantifiable achievements
     - Generate 3-5 bullet variations using OpenAI
@@ -235,7 +235,7 @@ This document outlines the day-by-day implementation plan for GitStory over 18 d
   - _Time: 5 hours_
 
 - [ ] 10. Skill Gap Analysis
-  - [ ] 10.1 Create role requirements database
+  - [x] 10.1 Create role requirements database
     - Define skill requirements for frontend, backend, fullstack, devops roles
     - Include essential, preferred, and nice-to-have skills
     - Store as JSON configuration or database table

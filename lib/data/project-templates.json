@@ -1,0 +1,883 @@
+{
+  "templates": [
+    {
+      "id": "basic-html",
+      "name": "Basic HTML Website",
+      "description": "Create a single-page CV to showcase your education, skills and experience using semantic HTML and CSS techniques to enhnace its appearance and responsiveness",
+      "techStack": ["HTML", "CSS"],
+      "difficulty": "beginner",
+      "timeEstimate": "1-2 days",
+      "skillsTaught": ["semantic HTML", "SEO Meta Tags", "Open Graph Tags"],
+      "category": "frontend",
+      "features": [
+        "Education section",
+        "Skills list",
+        "Experience section",
+        "Favicon",
+        "SEO Meta tags"
+      ],
+      "learningResources": [
+        {
+          "title": "Roadmap Projects",
+          "url": "https://roadmap.sh/projects/single-page-cv",
+          "type": "article"
+        },
+        {
+          "title": "Semantic HTML Help",
+          "url": "https://www.w3schools.com/html/html5_semantic_elements.asp",
+          "type": "tutorial"
+        },
+        {
+          "title": "SEO Meta Tags Help",
+          "url": "https://www.conductor.com/academy/what-are-meta-tags/",
+          "type": "tutorial"
+        }
+      ]
+    },
+    {
+      "id": "simple-tabs",
+      "name": "Tabs",
+      "description": "Build a UI component for tabs (switching content) using HTML, CSS & JS.",
+      "techStack": ["CSS", "HTML", "JavaScript"],
+      "difficulty": "beginner",
+      "timeEstimate": "1-3 days",
+      "skillsTaught": [
+        "DOM manipulation",
+        "event handling",
+        "accessible UI",
+        "component state"
+      ],
+      "category": "frontend",
+      "features": [
+        "Tab headers",
+        "Tab panels",
+        "Click to switch",
+        "Keyboard / focus support"
+      ],
+      "learningResources": [
+        {
+          "title": "Building Tabs Component",
+          "url": "https://web.dev/articles/building/a-tabs-component",
+          "type": "tutorial"
+        },
+        {
+          "title": "How to Create Tabs",
+          "url": "https://www.w3schools.com/howto/howto_js_tabs.asp",
+          "type": "tutorial"
+        }
+      ]
+    },
+    {
+      "id": "age-calculator",
+      "name": "Age Calculator",
+      "description": "Build an age calculator that computes age from a date of birth input.",
+      "techStack": ["CSS", "HTML", "JavaScript"],
+      "difficulty": "beginner",
+      "timeEstimate": "3-4 days",
+      "skillsTaught": ["Handling user input", "Design a simple interface"],
+      "category": "frontend",
+      "features": [
+        "Date input",
+        "Calculate age",
+        "Display result",
+        "Using npm",
+        "Use the Luxon Library",
+        "Basic validation on the birthdate",
+        "Form to allow users to input their birthdate"
+      ],
+      "learningResources": [
+        {
+          "title": "NPM Documentation",
+          "url": "https://www.npmjs.com/",
+          "type": "docs"
+        },
+        {
+          "title": "Luxon Documentation",
+          "url": "https://www.npmjs.com/package/luxon",
+          "type": "docs"
+        },
+        {
+          "title": "Project Information",
+          "url": "https://roadmap.sh/projects/age-calculator",
+          "type": "article"
+        }
+      ]
+    },
+    {
+      "id": "task-tracker",
+      "name": "Task Tracker",
+      "description": "Create a to-do list app where users can add, mark, edit and delete tasks.",
+      "techStack": ["CSS", "HTML", "JavaScript"],
+      "difficulty": "intermediate",
+      "timeEstimate": "3-7 days",
+      "skillsTaught": [
+        "DOM manipulation",
+        "localStorage persistence",
+        "event handling"
+      ],
+      "category": "frontend",
+      "features": [
+        "Add tasks",
+        "Complete / incomplete toggle",
+        "Delete tasks",
+        "Persist tasks across sessions"
+      ],
+      "learningResources": [
+        {
+          "title": "Project Information",
+          "url": "https://roadmap.sh/projects/task-tracker-js",
+          "type": "article"
+        },
+        {
+          "title": "Javascript Todo List Tutorial",
+          "url": "https://dwyl.github.io/javascript-todo-list-tutorial/",
+          "type": "tutorial"
+        }
+      ]
+    },
+    {
+      "id": "weather-web-app",
+      "name": "Weather Web App",
+      "description": "Build a web app that uses a weather API to fetch and display weather data for a location.",
+      "techStack": ["JavaScript", "HTML", "CSS", "API "],
+      "difficulty": "intermediate",
+      "timeEstimate": "4-8 days",
+      "skillsTaught": [
+        "API integration",
+        "async / await / fetch",
+        "DOM updates",
+        "error handling"
+      ],
+      "category": "frontend",
+      "features": [
+        "Location input",
+        "Fetch weather",
+        "Display temperature & conditions",
+        "Handle API errors"
+      ],
+      "learningResources": [
+        {
+          "title": "Weather App API Tutorial",
+          "url": "https://alwazkazi3.medium.com/creating-a-weather-app-using-api-javascript-4d7bb26bbc92",
+          "type": "tutorial"
+        },
+        {
+          "title": "Visual Crossing API",
+          "url": "https://www.visualcrossing.com/weather-api/",
+          "type": "docs"
+        },
+        {
+          "title": "How to Fetch Weather Data",
+          "url": "https://www.omi.me/blogs/api-guides/how-to-fetch-weather-data-using-open-meteo-api-in-javascript",
+          "type": "tutorial"
+        }
+      ]
+    },
+    {
+      "id": "pomodoro-timer",
+      "name": "Pomodoro Timer",
+      "description": "Create a Pomodoro timer app to help track work / break intervals using the frontend framework of your choice e.g. React, Vue or Angular.",
+      "techStack": ["CSS", "HTML", "JavaScript", "JS Framework"],
+      "difficulty": "intermediate",
+      "timeEstimate": "1-2 weeks",
+      "skillsTaught": [
+        "timers",
+        "state management",
+        "UI control",
+        "JavaScript timing APIs",
+        "accessible UI"
+      ],
+      "category": "frontend",
+      "features": [
+        "Start / pause / reset timer",
+        "Switch between work & break",
+        "Cycle count",
+        "Visual timer UI"
+      ],
+      "learningResources": [
+        {
+          "title": "Time.fyi Example",
+          "url": "https://time.fyi/pomodoro",
+          "type": "example"
+        },
+        {
+          "title": "Pomodoro UI Example",
+          "url": "https://pomofocus.io/",
+          "type": "example"
+        },
+        {
+          "title": "React Documentation",
+          "url": "https://react.dev/",
+          "type": "docs"
+        },
+        {
+          "title": "Vue Documentation",
+          "url": "https://vuejs.org/guide/introduction",
+          "type": "docs"
+        },
+        {
+          "title": "Angular Documentation",
+          "url": "https://v17.angular.io/docs",
+          "type": "docs"
+        }
+      ]
+    },
+    {
+      "id": "24hr-story",
+      "name": "24hr Story Feature",
+      "description": "Create an Instagram-style 24-hour story feature clone on the client side.",
+      "techStack": ["JS Framework", "HTML", "CSS"],
+      "difficulty": "advanced",
+      "timeEstimate": "2-3 weeks",
+      "skillsTaught": [
+        "localStorage / client storage",
+        "time-based expiry logic",
+        "responsive UI",
+        "image handling"
+      ],
+      "category": "",
+      "features": [
+        "Story upload",
+        "Display in story list",
+        "Expire after 24h",
+        "Swipe / next story navigation",
+        "Responsive design"
+      ],
+      "learningResources": [
+        {
+          "title": "24hr Story Feature",
+          "url": "https://roadmap.sh/projects/stories-feature",
+          "type": "article"
+        },
+        {
+          "title": "Instagram App Tutorial",
+          "url": "https://digittrix.com/blogs/build-instagram-like-app-features-and-tech-stack",
+          "type": "tutorial"
+        }
+      ]
+    },
+    {
+      "id": "task-tracker-cli",
+      "name": "Task Tracker (CLI)",
+      "description": "Build a command-line interface application to track tasks and manage a to-do list.",
+      "techStack": ["Node.js or Python", "CLI", "File system or simple DB"],
+      "difficulty": "beginner",
+      "timeEstimate": "1-2 days",
+      "skillsTaught": [
+        "CLI design",
+        "basic I/O",
+        "persistence",
+        "task state management"
+      ],
+      "category": "backend",
+      "features": [
+        "Add task",
+        "List tasks",
+        "Mark complete",
+        "Delete task",
+        "Persist across sessions"
+      ],
+      "learningResources": [
+        {
+          "title": "Backend Project Ideas – Roadmap.sh",
+          "url": "https://roadmap.sh/backend/projects",
+          "type": "article"
+        },
+        {
+          "title": "How to build CLI applications in Node.js",
+          "url": "https://blog.risingstack.com/node-js-cli-how-to-build-command-line-applications/",
+          "type": "tutorial"
+        }
+      ]
+    },
+    {
+      "id": "github-user-activity-cli",
+      "name": "GitHub User Activity (CLI)",
+      "description": "Use the GitHub API to fetch and display a user’s public activity via a terminal interface.",
+      "techStack": ["Node.js or Python", "GitHub API", "CLI"],
+      "difficulty": "beginner",
+      "timeEstimate": "1-3 days",
+      "skillsTaught": [
+        "REST API consumption",
+        "authentication basics",
+        "CLI output formatting"
+      ],
+      "category": "backend",
+      "features": [
+        "Login / token handling",
+        "Fetch user activity",
+        "Display events list",
+        "Filter by type"
+      ],
+      "learningResources": [
+        {
+          "title": "Using the GitHub API – Official",
+          "url": "https://docs.github.com/en/rest",
+          "type": "docs"
+        },
+        {
+          "title": "Build a CLI with Node.js",
+          "url": "https://www.freecodecamp.org/news/how-to-build-a-cli-in-node-js/",
+          "type": "tutorial"
+        }
+      ]
+    },
+    {
+      "id": "blogging-platform",
+      "name": "Blogging Platform API",
+      "description": "Create a simple RESTful API with basic CRUD operations for a personal blogging platform. CRUD stands for Create, Read, Update, and Delete",
+      "techStack": [
+        "Python",
+        "Flask",
+        "Django",
+        "Ruby",
+        "Ruby on Rails",
+        "Java",
+        "Spring Boot",
+        "JavaScript",
+        "Node.js",
+        "MySQL",
+        "MongoDB"
+      ],
+      "difficulty": "beginner",
+      "timeEstimate": "1-2 weeks",
+      "skillsTaught": [
+        "REST API consumption",
+        "Work with databases",
+        "CRUD using an API",
+        "Learn about status codes"
+      ],
+      "category": "backend",
+      "features": [
+        "Create a RESTful API for a bloggin platform",
+        "Add a blog post",
+        "Update blog post",
+        "Use SQL query in SQL Database",
+        "Query for a NoSQL database"
+      ],
+      "learningResources": [
+        {
+          "title": "Project Description",
+          "url": "https://roadmap.sh/projects/blogging-platform-api",
+          "type": "article"
+        },
+        {
+          "title": "Blogging platform with Node and Express.js",
+          "url": "https://www.geeksforgeeks.org/node-js/restful-blogging-api-with-node-and-express-js/",
+          "type": "tutorial"
+        }
+      ]
+    },
+    {
+      "id": "",
+      "name": "",
+      "description": "",
+      "techStack": "",
+      "difficulty": "",
+      "timeEstimate": "",
+      "skillsTaught": [],
+      "category": "",
+      "features": [],
+      "learningResources": []
+    },
+    {
+      "id": "url-shortener-api",
+      "name": "URL Shortening Service",
+      "description": "Develop a backend API to shorten URLs, redirect shortened links, and perhaps track usage statistics.",
+      "techStack": [
+        "Node.js / Python / Go / Java",
+        "Express / Flask / net/http / Spring",
+        "Database"
+      ],
+      "difficulty": "intermediate",
+      "timeEstimate": "5-9 days",
+      "skillsTaught": [
+        "Hashing / encoding",
+        "Redirect logic",
+        "Database design",
+        "Analytics (optional)"
+      ],
+      "category": "backend",
+      "features": [
+        "Shorten URL",
+        "Redirect to original URL",
+        "Track number of hits",
+        "User dashboard (optional)"
+      ],
+      "learningResources": [
+        {
+          "title": "20 Backend Project Ideas – Roadmap.sh",
+          "url": "https://roadmap.sh/backend/project-ideas",
+          "type": "article"
+        },
+        {
+          "title": "Build a URL Shortener in Node.js",
+          "url": "https://dev.to/shri224/build-a-url-shortener-in-node-js-2e89",
+          "type": "tutorial"
+        }
+      ]
+    },
+    {
+      "id": "fitness-workout-tracker",
+      "name": "Workout Tracker API",
+      "description": "Build a backend API for a workout tracker where users can log workouts, plan exercises, and monitor progress.",
+      "techStack": [
+        "Node.js / Python",
+        "Express / Flask",
+        "JWT",
+        "Relational DB"
+      ],
+      "difficulty": "intermediate",
+      "timeEstimate": "6-10 days  ",
+      "skillsTaught": [
+        "Authentication",
+        "Complex data modelling",
+        "RESTful API",
+        "Reporting"
+      ],
+      "category": "backend",
+      "features": [
+        "User accounts",
+        "Create workout plans",
+        "Log workout sessions",
+        "Generate past workout reports"
+      ],
+      "learningResources": [
+        {
+          "title": "Workout Tracker Project Idea",
+          "url": "https://roadmap.sh/projects/fitness-workout-tracker",
+          "type": "article"
+        },
+        {
+          "title": "Designing a REST API for a Fitness App",
+          "url": "https://blog.logrocket.com/design-rest-api-fitness-app-node-js/",
+          "type": "tutorial"
+        }
+      ]
+    },
+    {
+      "id": "real-time-leaderboard",
+      "name": "Real-Time Leaderboard System",
+      "description": "A backend system that handles user authentication, score submission, and real-time leaderboard updates using Redis sorted sets.",
+      "techStack": [
+        "Node.js or Python",
+        "Redis",
+        "SQL or NoSQL Database",
+        "JWT Authentication"
+      ],
+      "difficulty": "advanced",
+      "timeEstimate": "2-4 weeks",
+      "skillsTaught": [
+        "Backend architecture",
+        "User authentication",
+        "Redis sorted sets",
+        "Real-time data processing",
+        "Score ranking algorithms",
+        "Data modeling"
+      ],
+      "category": "backend",
+      "features": [
+        "User registration and login",
+        "Score submission for multiple games",
+        "Real-time global leaderboard",
+        "User-specific ranking lookup",
+        "Top players report by time period",
+        "Redis-based rank queries"
+      ],
+      "learningResources": [
+        {
+          "title": "Redis Documentation",
+          "url": "https://redis.io/docs/latest/develop/data-types/sorted-sets/",
+          "type": "docs"
+        },
+        {
+          "title": "Redis Tutorial",
+          "url": "https://www.youtube.com/watch?v=Hbt56gFj998",
+          "type": "tutorial"
+        },
+        {
+          "title": "Design a Leaderboard Tutorial",
+          "url": "https://medium.com/@mayilb77/design-a-real-time-leaderboard-system-for-millions-of-users-08b96b4b64ce",
+          "type": "tutorial"
+        }
+      ]
+    },
+    {
+      "id": "movie-reservation-system",
+      "name": "Movie Reservation System",
+      "description": "A backend system for managing movies, showtimes, seat reservations, and user authentication with role-based access.",
+      "techStack": [
+        "Node.js or Python",
+        "MySQL or PostgreSQL",
+        "JWT Authentication",
+        "ORM (Prisma, Sequelize, ORM of choice)"
+      ],
+      "difficulty": "advanced",
+      "timeEstimate": "3-6 weeks",
+      "skillsTaught": [
+        "Backend system design",
+        "Complex business logic",
+        "Scheduling and reservations",
+        "Database modeling and relationships",
+        "Authentication and authorization",
+        "Admin role management"
+      ],
+      "category": "backend",
+      "features": [
+        "User signup and login",
+        "Admin and regular user roles",
+        "Admin movie and showtime management",
+        "Browse movies and showtimes by date",
+        "Seat reservation with availability tracking",
+        "Reservation cancellations",
+        "Admin reporting on capacity and revenue",
+        "Overbooking prevention"
+      ],
+      "learningResources": [
+        {
+          "title": "Postgres SQL Documentation",
+          "url": "https://www.postgresql.org/docs/",
+          "type": "docs"
+        },
+        {
+          "title": "Movie Ticket Tutorial",
+          "url": "https://www.geeksforgeeks.org/system-design/design-movie-ticket-booking-system-like-bookmyshow/",
+          "type": "tutorial"
+        }
+      ]
+    },
+    {
+      "id": "github-pages-deployment",
+      "name": "GitHub Pages Deployment",
+      "description": "Set up a GitHub Actions workflow to build and deploy a static site to GitHub Pages on push.",
+      "techStack": ["GitHub Actions", "YAML", "Static site (HTML/CSS)"],
+      "difficulty": "beginner",
+      "timeEstimate": "1-2 days  ",
+      "skillsTaught": ["CI/CD", "workflow automation", "deployment"],
+      "category": "devops",
+      "features": [
+        "Push trigger",
+        "Build job",
+        "Deploy to gh-pages",
+        "Live Pages URL"
+      ],
+      "learningResources": [
+        {
+          "title": "DevOps Projects – Roadmap.sh",
+          "url": "https://roadmap.sh/devops/projects",
+          "type": "article"
+        },
+        {
+          "title": "Deploying to GitHub Pages using GitHub Actions",
+          "url": "https://docs.github.com/en/actions/deployment/deploying-to-github-pages",
+          "type": "docs"
+        }
+      ]
+    },
+    {
+      "id": "ssh-remote-server-setup",
+      "name": "SSH Remote Server Setup",
+      "description": "Provision a remote Linux server, configure SSH access and secure it for remote operations.",
+      "techStack": ["Linux", "SSH", "Bash scripting"],
+      "difficulty": "beginner",
+      "timeEstimate": "1-3 days  ",
+      "skillsTaught": [
+        "Server setup",
+        "SSH configuration",
+        "Basic security hardening"
+      ],
+      "category": "devops",
+      "features": [
+        "Create VM or server",
+        "Enable SSH",
+        "Set up firewall / user permissions",
+        "Harden SSH config"
+      ],
+      "learningResources": [
+        {
+          "title": "DevOps Projects – Roadmap.sh",
+          "url": "https://roadmap.sh/devops/projects",
+          "type": "article"
+        },
+        {
+          "title": "DigitalOcean Guide: How To Enable SSH On Ubuntu",
+          "url": "https://www.digitalocean.com/community/tutorials/how-to-enable-ssh-root-login-over-ubuntu-22-04",
+          "type": "tutorial"
+        }
+      ]
+    },
+    {
+      "id": "simple-monitoring",
+      "name": "Simple Monitoring Dashboard",
+      "description": "Install Netdata on a Linux server, monitor system metrics and set up alerts and dashboard.",
+      "techStack": ["Linux", "Netdata", "Bash / shell scripting"],
+      "difficulty": "beginner",
+      "timeEstimate": "2-4 days  ",
+      "skillsTaught": ["Monitoring", "System metrics", "Automation scripting"],
+      "category": "devops",
+      "features": [
+        "Install Netdata",
+        "Monitor CPU / memory / disk",
+        "Customize charts",
+        "Set alert threshold"
+      ],
+      "learningResources": [
+        {
+          "title": "Simple Monitoring Project – Roadmap.sh",
+          "url": "https://roadmap.sh/projects/simple-monitoring-dashboard",
+          "type": "article"
+        },
+        {
+          "title": "Netdata Documentation",
+          "url": "https://learn.netdata.cloud/docs/overview/",
+          "type": "docs"
+        }
+      ]
+    },
+    {
+      "id": "ansible-configuration-management",
+      "name": "Ansible Configuration Management",
+      "description": "Write an Ansible playbook to automate the configuration of a Linux server.",
+      "techStack": ["Ansible", "YAML", "Linux"],
+      "difficulty": "intermediate",
+      "timeEstimate": "2-4 days  ",
+      "skillsTaught": ["Infrastructure-as-code", "Automation", "Idempotency"],
+      "category": "devops",
+      "features": [
+        "Define playbook",
+        "Install packages",
+        "Configure services",
+        "Run idempotently"
+      ],
+      "learningResources": [
+        {
+          "title": "Ansible Getting Started Guide",
+          "url": "https://docs.ansible.com/ansible/latest/getting_started/index.html",
+          "type": "docs"
+        },
+        {
+          "title": "DevOps Projects – Roadmap.sh",
+          "url": "https://roadmap.sh/devops/projects",
+          "type": "article"
+        }
+      ]
+    },
+    {
+      "id": "notes-app",
+      "name": "User Notes App",
+      "description": "A simple full-stack application where users can register, log in, and create personal notes.",
+      "techStack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React or Vue",
+        "Node.js",
+        "Express",
+        "MongoDB"
+      ],
+      "difficulty": "beginner",
+      "timeEstimate": "3-5 days",
+      "skillsTaught": [
+        "Basic CRUD operations",
+        "User authentication",
+        "Frontend–backend communication",
+        "REST API design",
+        "Simple database modeling"
+      ],
+      "category": "fullstack",
+      "features": [
+        "User registration and login",
+        "Create, edit, delete notes",
+        "View notes list",
+        "User-specific data only",
+        "Responsive UI"
+      ],
+      "learningResources": [
+        {
+          "title": "React Beginner Tutorial",
+          "url": "https://react.dev/learn",
+          "type": "docs"
+        },
+        {
+          "title": "Express Guide",
+          "url": "https://expressjs.com/en/starter/installing.html",
+          "type": "docs"
+        },
+        {
+          "title": "MongoDB Basics",
+          "url": "https://www.mongodb.com/docs/manual/",
+          "type": "docs"
+        }
+      ]
+    },
+    {
+      "id": "task-manager",
+      "name": "Task Manager",
+      "description": "A productivity app where users can manage tasks with categories and statuses.",
+      "techStack": ["React", "Node.js", "Express", "PostgreSQL"],
+      "difficulty": "beginner",
+      "timeEstimate": "4-7 days",
+      "skillsTaught": [
+        "CRUD operations",
+        "State management",
+        "Frontend–backend communication",
+        "Validating user input",
+        "Working with relational data"
+      ],
+      "category": "fullstack",
+      "features": [
+        "User authentication",
+        "Create, update, delete tasks",
+        "Categories and status filters",
+        "Task completion tracking",
+        "Basic dashboard UI"
+      ],
+      "learningResources": [
+        {
+          "title": "React Official Docs",
+          "url": "https://react.dev/",
+          "type": "docs"
+        },
+        {
+          "title": "Express Documentation",
+          "url": "https://expressjs.com/",
+          "type": "docs"
+        },
+        {
+          "title": "PostgreSQL Tutorial",
+          "url": "https://www.postgresql.org/docs/current/tutorial.html",
+          "type": "docs"
+        }
+      ]
+    },
+    {
+      "id": "blogging-platform",
+      "name": "Blogging Platform",
+      "description": "A full-stack blogging system where users can write articles, comment, and follow authors.",
+      "techStack": ["React", "Node.js", "Express", "MongoDB", "JWT Auth"],
+      "difficulty": "intermediate",
+      "timeEstimate": "1-2 weeks",
+      "skillsTaught": [
+        "Full CRUD with relationships",
+        "Authentication & authorization",
+        "Pagination & filtering",
+        "Building a CMS-like editor",
+        "API security fundamentals"
+      ],
+      "category": "fullstack",
+      "features": [
+        "User sign up / login",
+        "Write, edit, delete blog posts",
+        "Comment system",
+        "User profiles",
+        "Follow & unfollow authors",
+        "Personalised feed"
+      ],
+      "learningResources": [
+        {
+          "title": "JWT Authentication Guide",
+          "url": "https://jwt.io/introduction",
+          "type": "docs"
+        },
+        {
+          "title": "MongoDB Mongoose Guide",
+          "url": "https://mongoosejs.com/docs/guide.html",
+          "type": "docs"
+        },
+        {
+          "title": "React Documentation",
+          "url": "https://react.dev/learn",
+          "type": "docs"
+        }
+      ]
+    },
+    {
+      "id": "expense-tracker",
+      "name": "Expense Tracker",
+      "description": "A personal finance application allowing users to track expenses, categorize spending and view visual charts.",
+      "techStack": [
+        "React",
+        "Node.js",
+        "Express",
+        "PostgreSQL",
+        "Recharts or Chart.js"
+      ],
+      "difficulty": "intermediate",
+      "timeEstimate": "1-2 weeks",
+      "skillsTaught": [
+        "Data visualization",
+        "Relational database modeling",
+        "Form handling & validation",
+        "Authentication",
+        "API creation & consumption"
+      ],
+      "category": "fullstack",
+      "features": [
+        "User authentication",
+        "Add/edit/delete expenses",
+        "Categories",
+        "Monthly reports",
+        "Charts & graphs",
+        "Export to CSV"
+      ],
+      "learningResources": [
+        {
+          "title": "Chart.js Guide",
+          "url": "https://www.chartjs.org/docs/latest/",
+          "type": "docs"
+        },
+        {
+          "title": "PostgreSQL Documentation",
+          "url": "https://www.postgresql.org/docs/",
+          "type": "docs"
+        },
+        {
+          "title": "Express Routing Docs",
+          "url": "https://expressjs.com/en/guide/routing.html",
+          "type": "docs"
+        }
+      ]
+    },
+    {
+      "id": "job-board",
+      "name": "Job Board",
+      "description": "A full-stack job platform where companies can post jobs and applicants can apply and manage profiles.",
+      "techStack": ["React", "Node.js", "Express", "MongoDB or PostgreSQL"],
+      "difficulty": "intermediate",
+      "timeEstimate": "2-3 weeks",
+      "skillsTaught": [
+        "Role-based permissions",
+        "Advanced CRUD operations",
+        "Search & filtering",
+        "File uploading",
+        "Pagination & query optimisation"
+      ],
+      "category": "fullstack",
+      "features": [
+        "User & company login",
+        "Job posting",
+        "Search & filtering",
+        "Apply to jobs",
+        "Upload resumes",
+        "Company dashboards"
+      ],
+      "learningResources": [
+        {
+          "title": "React Guides",
+          "url": "https://react.dev/",
+          "type": "docs"
+        },
+        {
+          "title": "Express Middleware Guide",
+          "url": "https://expressjs.com/en/resources/middleware.html",
+          "type": "docs"
+        },
+        {
+          "title": "Multer File Upload Docs",
+          "url": "https://expressjs.com/en/resources/middleware/multer.html",
+          "type": "docs"
+        }
+      ]
+    }
+  ]
+}
