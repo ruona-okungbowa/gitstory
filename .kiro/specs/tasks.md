@@ -265,8 +265,8 @@ This document outlines the day-by-day implementation plan for GitStory over 18 d
 
   - _Time: 6 hours_
 
-- [ ] 11. Project Recommendations
-  - [ ] 11.1 Create project templates database
+- [x] 11. Project Recommendations
+  - [x] 11.1 Create project templates database
     - Define 20-30 project templates with:
       - Name, description, tech stack
       - Difficulty, time estimate
@@ -274,7 +274,7 @@ This document outlines the day-by-day implementation plan for GitStory over 18 d
     - Store as JSON or database table
     - _Requirements: 5.1, 5.2_
 
-  - [ ] 11.2 Implement recommendation logic
+  - [x] 11.2 Implement recommendation logic
     - Create /api/analysis/recommendations endpoint
     - Match templates to user's skill gaps
     - Prioritize by number of gaps filled
@@ -384,13 +384,19 @@ This document outlines the day-by-day implementation plan for GitStory over 18 d
 
 - [ ] 14. README Generation
   - [ ] 14.1 Implement README generation logic
+    - Create lib/openai/generateReadme.ts - Main generation logic with OpenAI
+    - Create lib/github/fetchReadme.ts - Fetch existing README from GitHub
+    - Create lib/utils/validateMarkdown.ts - Validate Markdown syntax
+    - Create lib/utils/generateBadges.ts - Generate shields.io badges
     - Create /api/ai/readme endpoint
     - Analyze project structure and code
-    - Generate sections: overview, features, tech stack, installation, usage
+    - Generate sections: title, badges, description, features, tech stack, installation, usage, contributing, license
     - Format as proper Markdown with badges
-    - Validate Markdown syntax
-    - Store in generated_content table
+    - Validate Markdown syntax (Property 9)
+    - Store in generated_content table with 24-hour cache
+    - Support both new README creation and enhancement of existing README
     - _Requirements: 8.1, 8.2, 8.3_
+    - _Files: lib/openai/generateReadme.ts, lib/github/fetchReadme.ts, lib/utils/validateMarkdown.ts, lib/utils/generateBadges.ts, app/api/ai/readme/route.ts, app/api/test/readme/route.ts_
 
   - [ ] 14.2 Build READMEPreview component
     - Display generated README with Markdown rendering
@@ -696,3 +702,129 @@ This document outlines the day-by-day implementation plan for GitStory over 18 d
 ---
 
 **Ready to start building?** Begin with Task 1: Project Setup!
+
+---
+
+## Wow Factor Features (Added 2025-11-20)
+
+- [ ] 15. Portfolio Website Generator
+  - [ ] 15.1 Create portfolio template system
+    - Create lib/templates/portfolio-template.ts
+    - Design responsive HTML/CSS with Tailwind CDN
+    - Include sections: Hero, Projects, Skills, Contact
+    - Use modern design with gradients and animations
+    - _Requirements: 11.1, 11.4, 11.10_
+    - _Time: 2 hours_
+
+  - [ ] 15.2 Implement AI content generation
+    - Create lib/openai/generatePortfolioContent.ts
+    - Implement generatePortfolioBio() function
+    - Implement generateProjectDescription() function
+    - Use GPT-4o-mini for compelling content
+    - _Requirements: 11.2, 11.3_
+    - _Time: 2 hours_
+
+  - [ ] 15.3 Build GitHub Pages deployment
+    - Create lib/github/deployToPages.ts
+    - Check if username.github.io repo exists
+    - Create repo if doesn't exist
+    - Update index.html if repo exists
+    - Handle GitHub API authentication
+    - _Requirements: 11.5, 11.6, 11.7_
+    - _Time: 2 hours_
+
+  - [ ] 15.4 Create API endpoint
+    - Create app/api/ai/portfolio-site/route.ts
+    - Fetch top 6 projects by stars
+    - Generate bio and descriptions with AI
+    - Extract skills from projects
+    - Generate HTML from template
+    - Deploy to GitHub Pages
+    - Return live URL
+    - _Requirements: 11.1-11.10_
+    - _Time: 1 hour_
+
+  - [ ] 15.5 Create test endpoint
+    - Create app/api/test/portfolio-site/route.ts
+    - Test with mock project data
+    - Validate HTML generation
+    - Test deployment flow (dry run)
+    - _Time: 1 hour_
+
+  - _Total Time: 8 hours_
+
+- [ ] 16. Live Voice Interview Simulator
+  - [ ] 16.1 Create voice recording system
+    - Create lib/audio/voiceRecorder.ts (client-side)
+    - Implement MediaRecorder for audio capture
+    - Add silence detection for auto-submission
+    - Show visual recording indicator
+    - Convert audio to Whisper-compatible format
+    - _Requirements: 12.3, 12.7, 12.8_
+    - _Time: 3 hours_
+
+  - [ ] 16.2 Implement speech-to-text
+    - Create lib/openai/speechToText.ts
+    - Integrate OpenAI Whisper API
+    - Handle audio blob conversion
+    - Add error handling and retries
+    - Return transcribed text
+    - _Requirements: 12.3, 12.4_
+    - _Time: 2 hours_
+
+  - [ ] 16.3 Implement text-to-speech
+    - Create lib/openai/textToSpeech.ts
+    - Integrate OpenAI TTS API
+    - Use 'nova' voice for professional tone
+    - Return base64 audio for client playback
+    - Handle audio streaming
+    - _Requirements: 12.2, 12.5_
+    - _Time: 2 hours_
+
+  - [ ] 16.4 Build interview question generation
+    - Create lib/openai/generateInterviewQuestions.ts
+    - Generate 5-7 relevant technical questions
+    - Include behavioral questions
+    - Vary difficulty levels
+    - _Requirements: 12.1_
+    - _Time: 1 hour_
+
+  - [ ] 16.5 Build answer evaluation system
+    - Create lib/openai/evaluateAnswer.ts
+    - Score on completeness, accuracy, clarity
+    - Generate specific feedback
+    - Provide improvement suggestions
+    - _Requirements: 12.4, 12.6_
+    - _Time: 2 hours_
+
+  - [ ] 16.6 Create API endpoints
+    - Create app/api/interview/voice/start/route.ts
+    - Create app/api/interview/voice/answer/route.ts
+    - Create app/api/interview/voice/end/route.ts
+    - Handle audio upload and processing
+    - Return transcriptions and evaluations
+    - Generate and return TTS audio
+    - _Requirements: 12.1-12.10_
+    - _Time: 3 hours_
+
+  - [ ] 16.7 Build client component
+    - Create components/VoiceInterviewSimulator.tsx
+    - Implement recording UI with visual feedback
+    - Add audio playback for AI responses
+    - Show real-time transcript
+    - Display evaluation scores
+    - Handle microphone permissions
+    - _Requirements: 12.8, 12.9, 12.10_
+    - _Time: 4 hours_
+
+  - [ ] 16.8 Add database schema
+    - Create voice_interviews table
+    - Store questions, answers, transcriptions
+    - Store evaluation scores
+    - Add indexes for performance
+    - _Requirements: 12.9_
+    - _Time: 1 hour_
+
+  - _Total Time: 18 hours_
+
+---

@@ -55,7 +55,6 @@ export async function fetchDependencyFiles(
         }
       }
     } catch {
-      // File doesn't exist, skip silently
       continue;
     }
   }

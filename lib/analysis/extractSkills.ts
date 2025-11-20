@@ -11,13 +11,6 @@ interface Project {
   github_repo_id?: number;
 }
 
-/**
- * Extract skills from user's projects
- * Strategy:
- * 1. Extract from languages field
- * 2. Try to fetch and parse dependency files (package.json, requirements.txt, etc.)
- * 3. Fallback to OpenAI analysis if no dependency files found
- */
 export async function extractSkillsFromProjects(
   projects: Project[],
   githubToken?: string
@@ -26,7 +19,6 @@ export async function extractSkillsFromProjects(
   const octokit = githubToken ? new Octokit({ auth: githubToken }) : null;
 
   for (const project of projects) {
-    // 1. Extract from languages field
     if (project.languages) {
       Object.keys(project.languages).forEach((lang) => {
         const normalized = normalizeSkillName(lang);
@@ -36,7 +28,6 @@ export async function extractSkillsFromProjects(
       });
     }
 
-    // Extract owner and repo from URL
     let owner: string | null = null;
     let repo: string | null = null;
 
@@ -48,7 +39,6 @@ export async function extractSkillsFromProjects(
       }
     }
 
-    // 2. Try to fetch and parse dependency files
     if (octokit && owner && repo) {
       try {
         console.log(`Fetching dependency files for ${owner}/${repo}...`);
@@ -62,7 +52,6 @@ export async function extractSkillsFromProjects(
 
         depSkills.forEach((skill) => skills.add(skill));
 
-        // If we found dependencies, skip OpenAI for this project
         if (depSkills.length > 0) {
           continue;
         }
@@ -73,7 +62,6 @@ export async function extractSkillsFromProjects(
       }
     }
 
-    // 3. Fallback to OpenAI analysis
     try {
       console.log(`Using OpenAI to analyze ${project.name}...`);
       const aiSkills = await analyzeCodebaseForSkills(
@@ -88,7 +76,6 @@ export async function extractSkillsFromProjects(
       console.error(`OpenAI analysis failed for ${project.name}:`, aiError);
     }
 
-    // 4. Also check description for quick wins
     if (project.description) {
       const detectedSkills = detectSkillsInText(project.description);
       detectedSkills.forEach((skill) => skills.add(skill));
@@ -98,13 +85,9 @@ export async function extractSkillsFromProjects(
   return Array.from(skills);
 }
 
-/**
- * Normalize skill names to standard format
- */
 function normalizeSkillName(skill: string): string {
   const normalized = skill.trim();
 
-  // Map common variations to standard names
   const skillMap: Record<string, string> = {
     javascript: "JavaScript",
     js: "JavaScript",

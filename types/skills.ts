@@ -15,7 +15,7 @@ export interface UserSkills {
   analysedAt: Date;
 }
 
-export interface GapAnalysis {
+export interface SkillAnalysis {
   role: Role;
   presentSkills: string[];
   missingSkills: {

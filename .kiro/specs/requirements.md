@@ -211,3 +211,43 @@ PortfolioAI is an AI-powered career readiness platform that helps CS graduates a
 - 90%+ uptime during judging period
 - <5% error rate on AI generation requests
 - Successful integration of 4+ external APIs (GitHub, OpenAI, job boards)
+
+---
+
+### Requirement 11: Portfolio Website Generation
+
+**User Story:** As a new grad, I want to generate a professional portfolio website from my GitHub projects, so that I can showcase my work with a polished online presence.
+
+#### Acceptance Criteria
+
+1. WHEN a user requests portfolio website generation THEN the system SHALL analyze their top 6 GitHub projects by stars
+2. WHEN generating the website THEN the system SHALL use AI to create a compelling bio based on the user's projects and tech stack
+3. WHEN generating project descriptions THEN the system SHALL create 1-2 sentence descriptions that highlight technical achievements
+4. WHEN creating the website THEN the system SHALL include sections for: hero with bio, featured projects grid, skills showcase, and contact information
+5. WHEN the website is generated THEN the system SHALL automatically deploy it to GitHub Pages at username.github.io
+6. WHEN deployment is complete THEN the system SHALL return the live URL and notify the user it may take a few minutes to go live
+7. WHEN a user already has a GitHub Pages repo THEN the system SHALL update the existing index.html file
+8. WHEN displaying projects THEN the system SHALL show project name, AI-generated description, tech stack badges, and link to GitHub repo
+9. WHEN displaying skills THEN the system SHALL extract and display up to 12 unique technologies from all projects
+10. WHEN the website is generated THEN it SHALL use a modern, responsive design with gradient backgrounds and smooth animations
+
+---
+
+### Requirement 12: Live Voice Interview Simulator
+
+**User Story:** As a new grad, I want to practice interviews with voice interaction, so that I can prepare for real interviews with realistic conversation practice.
+
+#### Acceptance Criteria
+
+1. WHEN a user starts a voice interview THEN the system SHALL select a project and generate relevant interview questions
+2. WHEN the AI asks a question THEN the system SHALL use text-to-speech to speak the question aloud
+3. WHEN the user responds THEN the system SHALL use speech-to-text to transcribe their answer in real-time
+4. WHEN an answer is transcribed THEN the system SHALL analyze it for completeness, technical accuracy, and communication clarity
+5. WHEN providing feedback THEN the system SHALL use text-to-speech to speak the feedback aloud
+6. WHEN feedback is given THEN the system SHALL highlight strengths and suggest specific improvements with examples
+7. WHEN a user pauses speaking THEN the system SHALL detect silence and automatically submit the answer after 2 seconds
+8. WHEN an interview session is active THEN the system SHALL display a visual indicator showing recording status
+9. WHEN an interview session ends THEN the system SHALL provide an overall performance summary with scores for technical depth and communication
+10. WHEN displaying the interview THEN the system SHALL show a transcript of all questions and answers for review
+
+---

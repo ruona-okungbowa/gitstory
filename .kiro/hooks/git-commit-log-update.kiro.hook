@@ -1,0 +1,17 @@
+{
+  "enabled": true,
+  "name": "Update Log on Git Commit",
+  "description": "Monitors the .git directory for changes (commits) and automatically updates log.md with the completed task details from the commit message",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      ".git/refs/heads/*",
+      ".git/HEAD"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "A git commit has just been made. Please read the latest commit message and update log.md with the completed task details. Extract the task information from the commit message and add it to log.md in a clear, organized format with the current timestamp. Make sure to preserve the existing log entries and append the new entry appropriately."
+  }
+}
