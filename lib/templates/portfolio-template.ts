@@ -1,0 +1,744 @@
+import { Project } from "@/types";
+
+export function generatePortfolioHTML(
+  name: string,
+  bio: string,
+  githubUsername: string,
+  projects: Project[],
+  skills: string[],
+  email?: string,
+  avatarUrl?: string
+): string {
+  return `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="${bio}">
+  <meta property="og:title" content="${name} - Developer Portfolio">
+  <meta property="og:description" content="${bio}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <title>${name} — Software Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      /* Animated background particles */
+      .particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: rgba(59, 130, 246, 0.3);
+        border-radius: 50%;
+        animation: float 20s infinite;
+      }
+
+      @keyframes float {
+        0%, 100% {
+          transform: translateY(0) translateX(0);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100vh) translateX(50px);
+          opacity: 0;
+        }
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .fade-in-up {
+        animation: fadeInUp 0.6s ease-out forwards;
+      }
+
+      .fade-in {
+        animation: fadeIn 0.6s ease-out forwards;
+      }
+
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.6s ease-out,
+          transform 0.6s ease-out;
+      }
+
+      .animate-on-scroll.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Mobile menu */
+      .mobile-menu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+      }
+
+      .mobile-menu.open {
+        max-height: 300px;
+      }
+
+      /* Project card enhancements */
+      .project-card {
+        background: 
+          linear-gradient(135deg, rgba(30, 41, 59, 1) 0%, rgba(15, 23, 42, 1) 100%),
+          repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(59, 130, 246, 0.03) 10px, rgba(59, 130, 246, 0.03) 20px);
+        box-shadow: 
+          0 4px 6px -1px rgba(0, 0, 0, 0.3),
+          0 2px 4px -1px rgba(0, 0, 0, 0.2),
+          inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+        transition: all 0.3s ease;
+      }
+
+      .project-card:hover {
+        background: 
+          linear-gradient(135deg, rgba(30, 41, 59, 0.5) 0%, rgba(15, 23, 42, 0.6) 100%),
+          repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(59, 130, 246, 0.05) 10px, rgba(59, 130, 246, 0.05) 20px);
+        box-shadow: 
+          0 20px 25px -5px rgba(59, 130, 246, 0.2),
+          0 10px 10px -5px rgba(59, 130, 246, 0.1),
+          inset 0 1px 0 0 rgba(59, 130, 246, 0.1);
+        border-color: rgba(59, 130, 246, 0.5) !important;
+      }
+
+      /* Skill badge enhancements */
+      .skill-badge {
+        background: 
+          linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(15, 23, 42, 0.8) 100%);
+        box-shadow: 
+          0 4px 6px -1px rgba(0, 0, 0, 0.3),
+          0 2px 4px -1px rgba(0, 0, 0, 0.2),
+          inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .skill-badge:hover {
+        box-shadow: 
+          0 0 20px rgba(59, 130, 246, 0.4),
+          0 0 40px rgba(59, 130, 246, 0.2),
+          0 4px 6px -1px rgba(0, 0, 0, 0.3),
+          inset 0 1px 0 0 rgba(59, 130, 246, 0.2);
+        transform: translateY(-4px) scale(1.05);
+      }
+
+      .skill-badge .skill-icon {
+        font-size: 3rem;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+      }
+
+      .skill-tooltip {
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-10px);
+        background: rgba(15, 23, 42, 0.95);
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-size: 0.875rem;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        z-index: 10;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      }
+
+      .skill-badge:hover .skill-tooltip {
+        opacity: 1;
+        transform: translateX(-50%) translateY(-5px);
+      }
+
+      /* Language bar */
+      .lang-bar {
+        height: 4px;
+        background: rgba(59, 130, 246, 0.3);
+        border-radius: 2px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .lang-bar-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+        transition: width 0.6s ease;
+      }
+    </style>
+  </head>
+  <body class="text-gray-100 min-h-screen">
+    <!-- Animated particles background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav
+      class="fixed top-0 w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700"
+    >
+      <div
+        class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <p class="text-sm text-gray-400 font-medium">
+          ${name}
+        </p>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex gap-6">
+          <a
+            href="#home"
+            class="text-sm text-gray-400 hover:text-white transition-all"
+            >Home</a
+          >
+          <a
+            href="#projects"
+            class="text-sm text-gray-400 hover:text-white transition-all"
+            >Projects</a
+          >
+          <a
+            href="#about"
+            class="text-sm text-gray-400 hover:text-white transition-all"
+            >About</a
+          >
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button
+          id="mobile-menu-btn"
+          class="md:hidden text-gray-400 hover:text-white transition"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="mobile-menu md:hidden bg-slate-800/95 backdrop-blur-md border-t border-slate-700"
+      >
+        <div class="max-w-4xl mx-auto px-6 py-4 flex flex-col gap-4">
+          <a
+            href="#home"
+            class="text-sm text-gray-400 hover:text-white transition-all mobile-menu-link"
+            >Home</a
+          >
+          <a
+            href="#projects"
+            class="text-sm text-gray-400 hover:text-white transition-all mobile-menu-link"
+            >Projects</a
+          >
+          <a
+            href="#about"
+            class="text-sm text-gray-400 hover:text-white transition-all mobile-menu-link"
+            >About</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="max-w-4xl mx-auto px-6 py-32 pt-40 min-h-screen flex flex-col justify-center"
+    >
+      <h1
+        class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent fade-in-up"
+        style="animation-delay: 0.1s"
+      >
+        ${name}
+      </h1>
+      <p
+        class="text-xl md:text-3xl text-blue-400 mb-8 font-semibold fade-in-up"
+        style="animation-delay: 0.3s"
+      >
+        Software Engineer
+      </p>
+      <p
+        class="text-base md:text-lg text-gray-300 leading-relaxed mb-10 max-w-2xl fade-in-up"
+        style="animation-delay: 0.5s"
+      >
+        ${bio}
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 items-center justify-center sm:justify-start">
+      <a
+        href="#projects"
+        class="inline-block bg-blue-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-600 transition-all hover:scale-105 w-fit fade-in-up"
+        style="animation-delay: 0.7s"
+      >
+        View my Work
+      </a>
+      <a href="https://github.com/${githubUsername}" 
+               target="_blank"
+               class="inline-block bg-blue-200 text-black px-8 py-4 rounded-lg font-semibold hover:bg-blue-100 transition-all hover:scale-105 w-fit fade-in-up">
+              GitHub Profile
+            </a>
+      </div>
+    </section>
+
+
+    <!-- Featured Projects Section -->
+    <section id="projects" class="py-16">
+      <div class="max-w-4xl mx-auto px-6 mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold animate-on-scroll">
+          Featured Projects
+        </h2>
+      </div>
+
+      <div class="relative">
+        <!-- Project 1 -->
+        ${projects
+          .map((project) => {
+            const languages = project.languages || {};
+            const langEntries = Object.entries(languages).sort(
+              (a, b) => b[1] - a[1]
+            );
+            const topLangs = langEntries.slice(0, 3);
+            const lastUpdate = project.lastCommitDate
+              ? new Date(project.lastCommitDate).toLocaleDateString("en-US", {
+                  month: "short",
+                  year: "numeric",
+                })
+              : "Recently";
+
+            return `
+            <div class="sticky top-20 mb-16 animate-on-scroll">
+              <div class="max-w-4xl mx-auto px-6">
+                <div class="project-card border border-slate-700 rounded-2xl overflow-hidden p-8 relative">
+                  <div class="flex flex-col md:flex-row gap-8">
+                    <!-- Main Content -->
+                    <div class="flex-1">
+                      <h3 class="text-3xl md:text-4xl font-bold text-blue-400 mb-4">${project.name}</h3>
+                      <p class="text-gray-300 leading-relaxed mb-6">${project.description}</p>
+                      <div class="flex gap-4 mb-6">
+                        <a href="${project.url}" target="_blank" class="flex items-center gap-2 text-gray-300 hover:text-blue-400 transition">
+                          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                          </svg>
+                          View Source
+                        </a>
+                      </div>
+                    </div>
+
+                    <!-- Stats Panel -->
+                    <div class="md:w-48 flex-shrink-0 space-y-6">
+                      <!-- Stars -->
+                      <div class="text-center">
+                        <div class="flex items-center justify-center gap-2 mb-2">
+                          <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                          </svg>
+                          <span class="text-3xl font-bold text-white">${project.stars || 0}</span>
+                        </div>
+                        <p class="text-sm text-gray-400">Stars</p>
+                      </div>
+
+                      <!-- Forks -->
+                      <div class="text-center">
+                        <div class="flex items-center justify-center gap-2 mb-2">
+                          <svg class="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M5 5.372v.878c0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75v-.878a2.25 2.25 0 1 1 1.5 0v.878a2.25 2.25 0 0 1-2.25 2.25h-1.5v2.128a2.251 2.251 0 1 1-1.5 0V8.5h-1.5A2.25 2.25 0 0 1 3.5 6.25v-.878a2.25 2.25 0 1 1 1.5 0ZM5 3.25a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Zm6.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm-3 8.75a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0Z"/>
+                          </svg>
+                          <span class="text-2xl font-bold text-white">${project.forks || 0}</span>
+                        </div>
+                        <p class="text-sm text-gray-400">Forks</p>
+                      </div>
+
+                      <!-- Last Updated -->
+                      <div class="text-center">
+                        <div class="flex items-center justify-center gap-2 mb-2">
+                          <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                          </svg>
+                        </div>
+                        <p class="text-sm font-medium text-white">${lastUpdate}</p>
+                        <p class="text-xs text-gray-400">Updated</p>
+                      </div>
+
+                      <!-- Language Breakdown -->
+                      <div>
+                        <p class="text-sm text-gray-400 mb-3 text-center">Languages</p>
+                        <div class="space-y-2">
+                          ${topLangs
+                            .map(
+                              ([lang, percent]) => `
+                            <div>
+                              <div class="flex justify-between text-xs mb-1">
+                                <span class="text-gray-300">${lang}</span>
+                                <span class="text-gray-400">${Math.round(percent)}%</span>
+                              </div>
+                              <div class="lang-bar">
+                                <div class="lang-bar-fill" style="width: ${percent}%"></div>
+                              </div>
+                            </div>
+                          `
+                            )
+                            .join("")}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            `;
+          })
+          .join("")}
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="max-w-4xl mx-auto px-6 py-20 relative z-10">
+      <h2 class="text-4xl md:text-5xl font-bold mb-12 animate-on-scroll">
+        Skills & Technologies
+      </h2>
+    
+      <!-- Skills Grid -->
+      <div class="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto">
+        ${skills
+          .map((skill) => {
+            // Count projects using this skill (simplified - just check if language exists)
+            const projectCount = projects.filter(
+              (p) =>
+                p.languages &&
+                Object.keys(p.languages).some(
+                  (lang) => lang.toLowerCase() === skill.toLowerCase()
+                )
+            ).length;
+
+            return `
+          <div class="skill-badge border border-slate-700 rounded-xl px-6 py-5 cursor-default flex flex-col items-center gap-3 relative">
+            <!-- Tooltip -->
+            <div class="skill-tooltip">
+              <div class="text-blue-400 font-semibold mb-1">${skill}</div>
+              <div class="text-gray-300 text-xs">Used in ${projectCount} project${projectCount !== 1 ? "s" : ""}</div>
+            </div>
+            
+            <!-- Icon -->
+            <i class="${getSkillIcon(skill)} skill-icon colored"></i>
+            
+            <!-- Skill Name -->
+            <span class="text-base font-medium text-gray-200">${skill}</span>
+          </div>
+        `;
+          })
+          .join("")}
+      </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="max-w-4xl mx-auto px-6 py-20">
+      <h2 class="text-4xl md:text-5xl font-bold mb-12 animate-on-scroll">
+        About Me
+      </h2>
+      <div
+        class="bg-slate-800 border border-slate-700 rounded-2xl p-8 md:p-12 animate-on-scroll"
+      >
+        <p class="text-lg text-gray-300 leading-relaxed mb-8">
+          Hi, I'm <span class="text-white font-semibold">${name}</span>, a
+          passionate Software Engineer with a knack for crafting seamless
+          digital experiences.
+        </p>
+        <p class="text-lg text-gray-300 leading-relaxed mb-10">
+          Over the years, I've honed my skills in building robust, user-friendly
+          applications that not only meet the needs of users but also push the
+          boundaries of what's possible.
+        </p>
+
+        <!-- Social Links -->
+        <div class="flex gap-4">
+        <a href="https://github.com/${githubUsername}" target="_blank" class="text-gray-400 hover:text-white transition">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+              />
+            </svg>
+          </a>
+          ${
+            email
+              ? `<a href="mailto:{email}"  class="text-gray-400 hover:text-white transition">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </a>`
+              : ""
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-700 mt-20 bg-slate-900/50">
+      <div class="max-w-4xl mx-auto px-6 py-10 text-center">
+        <p class="text-gray-400 mb-2"> © ${new Date().getFullYear()} ${name}. All rights reserved.</p>
+        <p class="text-sm text-gray-500">Generated with ❤️ GitStory </p>
+      </div>
+    </footer>
+
+    <script>
+      // Smooth scrolling
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+
+      // Active nav indicator
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+      function updateActiveNav() {
+        let current = "";
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (window.scrollY >= sectionTop - 100) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("text-white", "font-semibold");
+          link.classList.add("text-gray-400");
+          if (link.getAttribute("href") === "#" + current) {
+            link.classList.remove("text-gray-400");
+            link.classList.add("text-white", "font-semibold");
+          }
+        });
+      }
+
+      window.addEventListener("scroll", updateActiveNav);
+      updateActiveNav();
+
+      // Mobile menu toggle
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const mobileMenuLinks = document.querySelectorAll(".mobile-menu-link");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("open");
+      });
+
+      // Close mobile menu when clicking a link
+      mobileMenuLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("open");
+        });
+      });
+
+      // Scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, observerOptions);
+
+      // Observe all elements with animate-on-scroll class
+      document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+        observer.observe(el);
+      });
+
+      // Add hover effect to skill badges
+      document.querySelectorAll(".bg-slate-700\\/50").forEach((badge) => {
+        badge.addEventListener("mouseenter", function () {
+          this.style.transform = "translateY(-2px)";
+        });
+        badge.addEventListener("mouseleave", function () {
+          this.style.transform = "translateY(0)";
+        });
+      });
+
+      // Create animated particles
+      function createParticles() {
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 30;
+
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement('div');
+          particle.className = 'particle';
+          
+          // Random starting position
+          particle.style.left = Math.random() * 100 + '%';
+          particle.style.top = Math.random() * 100 + '%';
+          
+          // Random animation delay and duration
+          particle.style.animationDelay = Math.random() * 20 + 's';
+          particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+          
+          // Random size
+          const size = 2 + Math.random() * 4;
+          particle.style.width = size + 'px';
+          particle.style.height = size + 'px';
+          
+          particlesContainer.appendChild(particle);
+        }
+      }
+
+      createParticles();
+
+      // Animate language bars on scroll
+      const langBars = document.querySelectorAll('.lang-bar-fill');
+      const barObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.width = entry.target.getAttribute('style').match(/width: (\\d+)%/)[1] + '%';
+          }
+        });
+      }, { threshold: 0.5 });
+
+      langBars.forEach(bar => barObserver.observe(bar));
+    </script>
+  </body>
+</html>
+`;
+}
+
+function getSkillIcon(skill: string): string {
+  const skillLower = skill.toLowerCase().replace(/\s+/g, "");
+
+  // Map of skill names to devicon classes
+  const iconMap: Record<string, string> = {
+    // Languages
+    javascript: "devicon-javascript-plain",
+    typescript: "devicon-typescript-plain",
+    python: "devicon-python-plain",
+    java: "devicon-java-plain",
+    csharp: "devicon-csharp-plain",
+    "c#": "devicon-csharp-plain",
+    php: "devicon-php-plain",
+    ruby: "devicon-ruby-plain",
+    go: "devicon-go-plain",
+    rust: "devicon-rust-plain",
+    swift: "devicon-swift-plain",
+    kotlin: "devicon-kotlin-plain",
+
+    // Frontend
+    react: "devicon-react-original",
+    reactjs: "devicon-react-original",
+    vue: "devicon-vuejs-plain",
+    vuejs: "devicon-vuejs-plain",
+    angular: "devicon-angularjs-plain",
+    svelte: "devicon-svelte-plain",
+    nextjs: "devicon-nextjs-plain",
+    "next.js": "devicon-nextjs-plain",
+    html: "devicon-html5-plain",
+    html5: "devicon-html5-plain",
+    css: "devicon-css3-plain",
+    css3: "devicon-css3-plain",
+    tailwind: "devicon-tailwindcss-plain",
+    tailwindcss: "devicon-tailwindcss-plain",
+    bootstrap: "devicon-bootstrap-plain",
+    sass: "devicon-sass-original",
+    scss: "devicon-sass-original",
+
+    // Backend
+    nodejs: "devicon-nodejs-plain",
+    "node.js": "devicon-nodejs-plain",
+    node: "devicon-nodejs-plain",
+    express: "devicon-express-original",
+    expressjs: "devicon-express-original",
+    django: "devicon-django-plain",
+    flask: "devicon-flask-original",
+    fastapi: "devicon-fastapi-plain",
+    nestjs: "devicon-nestjs-plain",
+    spring: "devicon-spring-plain",
+    laravel: "devicon-laravel-plain",
+
+    // Databases
+    mongodb: "devicon-mongodb-plain",
+    postgresql: "devicon-postgresql-plain",
+    postgres: "devicon-postgresql-plain",
+    mysql: "devicon-mysql-plain",
+    redis: "devicon-redis-plain",
+    sqlite: "devicon-sqlite-plain",
+    firebase: "devicon-firebase-plain",
+    supabase: "devicon-supabase-plain",
+
+    // Cloud & DevOps
+    aws: "devicon-amazonwebservices-plain-wordmark",
+    azure: "devicon-azure-plain",
+    gcp: "devicon-googlecloud-plain",
+    docker: "devicon-docker-plain",
+    kubernetes: "devicon-kubernetes-plain",
+    jenkins: "devicon-jenkins-plain",
+    git: "devicon-git-plain",
+    github: "devicon-github-original",
+    gitlab: "devicon-gitlab-plain",
+    vercel: "devicon-vercel-plain",
+    heroku: "devicon-heroku-plain",
+    nginx: "devicon-nginx-original",
+
+    // Tools
+    vscode: "devicon-vscode-plain",
+    figma: "devicon-figma-plain",
+    webpack: "devicon-webpack-plain",
+    vite: "devicon-vitejs-plain",
+    npm: "devicon-npm-original-wordmark",
+    yarn: "devicon-yarn-plain",
+    jest: "devicon-jest-plain",
+    vitest: "devicon-vitest-plain",
+    graphql: "devicon-graphql-plain",
+    redux: "devicon-redux-original",
+  };
+
+  return iconMap[skillLower] || "devicon-devicon-plain";
+}

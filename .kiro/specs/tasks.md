@@ -350,20 +350,22 @@ This document outlines the day-by-day implementation plan for GitStory over 18 d
 
 ### Week 3: Polish & Ship (Days 13-18)
 
-- [ ] 13. Job Match Scoring
-  - [ ] 13.1 Implement job description parsing
+- [x] 13. Job Match Scoring
+  - [x] 13.1 Implement job description parsing
     - Create /api/jobs/match endpoint
     - Extract required skills from job description using OpenAI
     - Parse responsibilities and qualifications
     - _Requirements: 7.1_
+    - _Files: lib/openai/extractJobSkills.ts, app/api/jobs/match/route.ts_
 
-  - [ ] 13.2 Implement match calculation
+  - [x] 13.2 Implement match calculation
     - Compare extracted skills to user's portfolio
     - Calculate match percentage (0-100)
     - Identify matched and missing skills
     - Suggest which projects to highlight
     - Store in job_matches table
     - _Requirements: 7.2, 7.3, 7.4_
+    - _Files: lib/analysis/calculateJobMatch.ts, app/api/jobs/match/route.ts_
 
   - [ ] 13.3 Build JobMatchScore component
     - Display match percentage with visual indicator
@@ -381,6 +383,7 @@ This document outlines the day-by-day implementation plan for GitStory over 18 d
     - Test with 100+ iterations
 
   - _Time: 6 hours_
+  - _Status: API complete (13.1, 13.2), UI pending (13.3)_
 
 - [ ] 14. README Generation
   - [ ] 14.1 Implement README generation logic

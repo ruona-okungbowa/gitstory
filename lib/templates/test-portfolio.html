@@ -1,0 +1,764 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Name — Software Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .fade-in-up {
+        animation: fadeInUp 0.6s ease-out forwards;
+      }
+
+      .fade-in {
+        animation: fadeIn 0.6s ease-out forwards;
+      }
+
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.6s ease-out,
+          transform 0.6s ease-out;
+      }
+
+      .animate-on-scroll.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Mobile menu */
+      .mobile-menu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+      }
+
+      .mobile-menu.open {
+        max-height: 300px;
+      }
+    </style>
+  </head>
+  <body class="text-gray-100 min-h-screen">
+    <!-- Navigation -->
+    <nav
+      class="fixed top-0 w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700"
+    >
+      <div
+        class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <p class="text-sm text-gray-400 font-medium">
+          Your Name — Software Engineer
+        </p>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex gap-6">
+          <a
+            href="#home"
+            class="text-sm text-gray-400 hover:text-white transition-all"
+            >Home</a
+          >
+          <a
+            href="#experience"
+            class="text-sm text-gray-400 hover:text-white transition-all"
+            >Experience</a
+          >
+          <a
+            href="#projects"
+            class="text-sm text-gray-400 hover:text-white transition-all"
+            >Projects</a
+          >
+          <a
+            href="#about"
+            class="text-sm text-gray-400 hover:text-white transition-all"
+            >About</a
+          >
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button
+          id="mobile-menu-btn"
+          class="md:hidden text-gray-400 hover:text-white transition"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="mobile-menu md:hidden bg-slate-800/95 backdrop-blur-md border-t border-slate-700"
+      >
+        <div class="max-w-4xl mx-auto px-6 py-4 flex flex-col gap-4">
+          <a
+            href="#home"
+            class="text-sm text-gray-400 hover:text-white transition-all mobile-menu-link"
+            >Home</a
+          >
+          <a
+            href="#experience"
+            class="text-sm text-gray-400 hover:text-white transition-all mobile-menu-link"
+            >Experience</a
+          >
+          <a
+            href="#projects"
+            class="text-sm text-gray-400 hover:text-white transition-all mobile-menu-link"
+            >Projects</a
+          >
+          <a
+            href="#about"
+            class="text-sm text-gray-400 hover:text-white transition-all mobile-menu-link"
+            >About</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="max-w-4xl mx-auto px-6 py-32 pt-40 min-h-screen flex flex-col justify-center"
+    >
+      <h1
+        class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent fade-in-up"
+        style="animation-delay: 0.1s"
+      >
+        Your Name
+      </h1>
+      <p
+        class="text-xl md:text-3xl text-blue-400 mb-8 font-semibold fade-in-up"
+        style="animation-delay: 0.3s"
+      >
+        Software Engineer
+      </p>
+      <p
+        class="text-base md:text-lg text-gray-300 leading-relaxed mb-10 max-w-2xl fade-in-up"
+        style="animation-delay: 0.5s"
+      >
+        Developer based in San Francisco, USA. I specialize in UI design, web
+        and mobile application development and maintenance.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 items-center justify-center sm:justify-start">
+
+          <a
+            href="#projects"
+            class="inline-block bg-blue-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-600 transition-all hover:scale-105 w-fit fade-in-up"
+            style="animation-delay: 0.7s"
+          >
+            View my Work
+          </a>
+          <a href="https://github.com/${data.githubUsername}" 
+               target="_blank"
+               class="inline-block bg-blue-200 text-black px-8 py-4 rounded-lg font-semibold hover:bg-blue-100 transition-all hover:scale-105 w-fit fade-in-up">
+              GitHub Profile
+            </a>
+      </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section id="experience" class="max-w-4xl mx-auto px-6 py-16">
+      <h2 class="text-4xl md:text-5xl font-bold mb-16 animate-on-scroll">
+        Work Experience
+      </h2>
+
+      <!-- Job 1 -->
+      <div class="mb-12 pb-12 border-b border-slate-700 animate-on-scroll">
+        <h3 class="text-2xl font-bold mb-2">Zalmart</h3>
+        <h4 class="text-xl text-blue-400 mb-2">Lead Android Developer</h4>
+        <p class="text-sm text-gray-400 mb-6">May 2018 — Sept 2020</p>
+        <ul class="space-y-4 text-gray-300">
+          <li class="leading-relaxed flex gap-3">
+            <span class="text-gray-500 mt-1">◉</span>
+            <span
+              >Implemented advanced memory management and code optimization
+              techniques, resulting in a reduction in application load time by
+              40% and a decrease in crashes by 25%. This significantly improved
+              user experience and increased user retention by 20%.</span
+            >
+          </li>
+          <li class="leading-relaxed flex gap-3">
+            <span class="text-gray-500 mt-1">◉</span>
+            <span
+              >I led a team of developers in building and integrating new
+              features using Jetpack Android components such as LiveData and
+              ViewModel. This enabled us to build scalable and maintainable
+              applications, reducing the crash rate by 20% and speeding up the
+              time to delivery of new features by 15%.</span
+            >
+          </li>
+          <li class="leading-relaxed flex gap-3">
+            <span class="text-gray-500 mt-1">◉</span>
+            <span
+              >Integrated Google Pay for in-app purchases, resulting in a 35%
+              increase in mobile transaction revenue. Additionally, implemented
+              Firebase Analytics to gain insights into user behavior, enabling
+              data-driven optimizations and a 30% increase in user
+              retention.</span
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- Job 2 -->
+      <div class="mb-12 pb-12 border-b border-slate-700 animate-on-scroll">
+        <h3 class="text-2xl font-bold mb-2">Bankit</h3>
+        <h4 class="text-xl text-blue-400 mb-2">Mobile Developer</h4>
+        <p class="text-sm text-gray-400 mb-6">Feb 2017 — May 2018</p>
+        <ul class="space-y-4 text-gray-300">
+          <li class="leading-relaxed flex gap-3">
+            <span class="text-gray-500 mt-1">◉</span>
+            <span
+              >I designed and developed a mobile application using Flutter,
+              allowing it to be deployed on both Android and iOS with a single
+              codebase. This reduced development time by 50% and maintenance
+              costs by 30%, facilitating a consistent user experience on both
+              platforms.</span
+            >
+          </li>
+          <li class="leading-relaxed flex gap-3">
+            <span class="text-gray-500 mt-1">◉</span>
+            <span
+              >I integrated biometric authentication and data encryption,
+              significantly improving the security of user data. This
+              implementation resulted in a 40% increase in user trust and a 25%
+              reduction in unauthorized access attempts.</span
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- Job 3 -->
+      <div class="animate-on-scroll">
+        <h3 class="text-2xl font-bold mb-2">Driveer</h3>
+        <h4 class="text-xl text-blue-400 mb-2">Frontend Developer</h4>
+        <p class="text-sm text-gray-400 mb-6">Jun 2015 — Oct 2016</p>
+        <p class="text-gray-300 leading-relaxed flex gap-3">
+          <span class="text-gray-500 mt-1">◉</span>
+          <span
+            >Developed and integrated a real-time vehicle tracking system using
+            WebSockets, improving accuracy and data update in the application.
+            This functionality increased user satisfaction by 30% and reduced
+            customer service inquiries by 25%.</span
+          >
+        </p>
+      </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section id="projects" class="py-16">
+      <div class="max-w-4xl mx-auto px-6 mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold animate-on-scroll">
+          Featured Projects
+        </h2>
+      </div>
+
+      <div id="projects-container" class="relative"></div>
+        <!-- Projects will be dynamically generated here -->
+      </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="max-w-4xl mx-auto px-6 py-20">
+      <h2 class="text-4xl md:text-5xl font-bold mb-12 animate-on-scroll">
+        About Me
+      </h2>
+      <div
+        class="bg-slate-800 border border-slate-700 rounded-2xl p-8 md:p-12 animate-on-scroll"
+      >
+        <p class="text-lg text-gray-300 leading-relaxed mb-8">
+          Hi, I'm <span class="text-white font-semibold">Your Name</span>, a
+          passionate Software Engineer with a knack for crafting seamless
+          digital experiences. With a strong background in full-stack
+          development, I thrive in the intersection where creativity meets
+          technology.
+        </p>
+        <p class="text-lg text-gray-300 leading-relaxed mb-10">
+          Over the years, I've honed my skills in building robust, user-friendly
+          applications that not only meet the needs of users but also push the
+          boundaries of what's possible. My projects range from innovative web
+          applications to responsive designs, all with a focus on performance,
+          security, and scalability.
+        </p>
+
+        <!-- Skills Section -->
+        <div class="mb-10">
+          <h3 class="text-2xl font-bold mb-6 text-white">Technical Skills</h3>
+
+          <!-- Languages -->
+          <div class="mb-8">
+            <h4
+              class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4"
+            >
+              Languages
+            </h4>
+            <div class="flex flex-wrap gap-4">
+              <div
+                class="flex items-center gap-2 bg-slate-700/50 px-4 py-2 rounded-lg hover:bg-slate-700 transition"
+              >
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                  alt="JavaScript"
+                  class="w-6 h-6"
+                />
+                <span class="text-gray-200">JavaScript</span>
+              </div>
+              <div
+                class="flex items-center gap-2 bg-slate-700/50 px-4 py-2 rounded-lg hover:bg-slate-700 transition"
+              >
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+                  alt="TypeScript"
+                  class="w-6 h-6"
+                />
+                <span class="text-gray-200">TypeScript</span>
+              </div>
+              <div
+                class="flex items-center gap-2 bg-slate-700/50 px-4 py-2 rounded-lg hover:bg-slate-700 transition"
+              >
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                  alt="Python"
+                  class="w-6 h-6"
+                />
+                <span class="text-gray-200">Python</span>
+              </div>
+              <div
+                class="flex items-center gap-2 bg-slate-700/50 px-4 py-2 rounded-lg hover:bg-slate-700 transition"
+              >
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+                  alt="Java"
+                  class="w-6 h-6"
+                />
+                <span class="text-gray-200">Java</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Frameworks & Libraries -->
+          <div class="mb-8">
+            <h4
+              class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4"
+            >
+              Frameworks & Libraries
+            </h4>
+            <div class="flex flex-wrap gap-4">
+              <div
+                class="flex items-center gap-2 bg-slate-700/50 px-4 py-2 rounded-lg hover:bg-slate-700 transition"
+              >
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                  alt="React"
+                  class="w-6 h-6"
+                />
+                <span class="text-gray-200">React</span>
+              </div>
+              <div
+                class="flex items-center gap-2 bg-slate-700/50 px-4 py-2 rounded-lg hover:bg-slate-700 transition"
+              >
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
+                  alt="Next.js"
+                  class="w-6 h-6 invert"
+                />
+                <span class="text-gray-200">Next.js</span>
+              </div>
+              <div
+                class="flex items-center gap-2 bg-slate-700/50 px-4 py-2 rounded-lg hover:bg-slate-700 transition"
+              >
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                  alt="Node.js"
+                  class="w-6 h-6"
+                />
+                <span class="text-gray-200">Node.js</span>
+              </div>
+              <div
+                class="flex items-center gap-2 bg-slate-700/50 px-4 py-2 rounded-lg hover:bg-slate-700 transition"
+              >
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg"
+                  alt="Flutter"
+                  class="w-6 h-6"
+                />
+                <span class="text-gray-200">Flutter</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tools & Technologies -->
+          <div>
+            <h4
+              class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4"
+            >
+              Tools & Technologies
+            </h4>
+            <div class="flex flex-wrap gap-4">
+              <div
+                class="flex items-center gap-2 bg-slate-700/50 px-4 py-2 rounded-lg hover:bg-slate-700 transition"
+              >
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+                  alt="Git"
+                  class="w-6 h-6"
+                />
+                <span class="text-gray-200">Git</span>
+              </div>
+              <div
+                class="flex items-center gap-2 bg-slate-700/50 px-4 py-2 rounded-lg hover:bg-slate-700 transition"
+              >
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+                  alt="Docker"
+                  class="w-6 h-6"
+                />
+                <span class="text-gray-200">Docker</span>
+              </div>
+              <div
+                class="flex items-center gap-2 bg-slate-700/50 px-4 py-2 rounded-lg hover:bg-slate-700 transition"
+              >
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+                  alt="PostgreSQL"
+                  class="w-6 h-6"
+                />
+                <span class="text-gray-200">PostgreSQL</span>
+              </div>
+              <div
+                class="flex items-center gap-2 bg-slate-700/50 px-4 py-2 rounded-lg hover:bg-slate-700 transition"
+              >
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
+                  alt="Firebase"
+                  class="w-6 h-6"
+                />
+                <span class="text-gray-200">Firebase</span>
+              </div>
+              <div
+                class="flex items-center gap-2 bg-slate-700/50 px-4 py-2 rounded-lg hover:bg-slate-700 transition"
+              >
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"
+                  alt="AWS"
+                  class="w-6 h-6"
+                />
+                <span class="text-gray-200">AWS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social Links -->
+        <div class="flex gap-4">
+          <a href="#" class="text-gray-400 hover:text-white transition">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+              />
+            </svg>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+              />
+            </svg>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm7.671 9.343c.015.195.015.39.015.585 0 5.955-4.531 12.813-12.813 12.813-2.547 0-4.915-.744-6.912-2.019.36.042.705.06 1.08.06 2.085 0 4.005-.705 5.535-1.905-1.95-.045-3.6-1.32-4.17-3.09.27.045.54.075.825.075.39 0 .78-.06 1.14-.15-2.04-.42-3.57-2.205-3.57-4.365v-.06c.6.33 1.29.54 2.025.57-1.2-.795-1.98-2.16-1.98-3.705 0-.825.21-1.575.585-2.22 2.19 2.7 5.46 4.47 9.15 4.65-.075-.33-.12-.675-.12-1.02 0-2.46 1.995-4.455 4.455-4.455 1.29 0 2.445.54 3.255 1.41 1.02-.195 1.98-.57 2.835-1.08-.33 1.05-1.05 1.935-1.98 2.49.9-.105 1.77-.36 2.565-.72-.6.9-1.35 1.68-2.22 2.31z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-700 mt-20 bg-slate-900/50">
+      <div class="max-w-4xl mx-auto px-6 py-10 text-center">
+        <p class="text-gray-400 mb-2">Your Name © 2025</p>
+        <p class="text-sm text-gray-500">Designed & Developed with ❤️</p>
+      </div>
+    </footer>
+
+    <script>
+      // Smooth scrolling
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+
+      // Active nav indicator
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+      function updateActiveNav() {
+        let current = "";
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (window.scrollY >= sectionTop - 100) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("text-white", "font-semibold");
+          link.classList.add("text-gray-400");
+          if (link.getAttribute("href") === "#" + current) {
+            link.classList.remove("text-gray-400");
+            link.classList.add("text-white", "font-semibold");
+          }
+        });
+      }
+
+      window.addEventListener("scroll", updateActiveNav);
+      updateActiveNav();
+
+      // Mobile menu toggle
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const mobileMenuLinks = document.querySelectorAll(".mobile-menu-link");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("open");
+      });
+
+      // Close mobile menu when clicking a link
+      mobileMenuLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("open");
+        });
+      });
+
+      // Scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, observerOptions);
+
+      // Observe all elements with animate-on-scroll class
+      document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+        observer.observe(el);
+      });
+
+      // Add hover effect to skill badges
+      document.querySelectorAll(".bg-slate-700\\/50").forEach((badge) => {
+        badge.addEventListener("mouseenter", function () {
+          this.style.transform = "translateY(-2px)";
+        });
+        badge.addEventListener("mouseleave", function () {
+          this.style.transform = "translateY(0)";
+        });
+      });
+    </script>
+  </body>
+</html>
+
+
+    <script>
+      // Projects data array
+      const projects = [
+        {
+          title: "Spotifu Music",
+          description: "A music streaming app that emulates Spotify's core features.",
+          image: "https://via.placeholder.com/600x400/1a1a1a/666666?text=Spotifu+Music",
+          sourceUrl: "#",
+          previewUrl: "#"
+        },
+        {
+          title: "Shopp App",
+          description: "An e-commerce platform that replicates Shopify's key features.",
+          image: "https://via.placeholder.com/600x400/1a1a1a/666666?text=Shopp+App",
+          sourceUrl: "#",
+          previewUrl: "#"
+        },
+        {
+          title: "ClonTagram",
+          description: "A social network that replicates the features of Instagram.",
+          image: "https://via.placeholder.com/600x400/1a1a1a/666666?text=ClonTagram",
+          sourceUrl: "#",
+          previewUrl: "#"
+        }
+      ];
+
+      // Function to generate project cards
+      function generateProjects() {
+        const container = document.getElementById("projects-container");
+        
+        projects.forEach((project) => {
+          const projectHTML = `
+            <div class="sticky top-20 mb-16 animate-on-scroll">
+              <div class="max-w-4xl mx-auto px-6">
+                <div class="bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden p-8 md:p-16 min-h-[400px] md:min-h-[500px] hover:border-blue-500 transition-all duration-300">
+                  <div class="grid md:grid-cols-2 gap-8 items-center h-full">
+                    <div>
+                      <h3 class="text-3xl md:text-4xl font-bold text-blue-400 mb-4">${project.title}</h3>
+                      <p class="text-gray-300 leading-relaxed mb-6">${project.description}</p>
+                      <div class="flex gap-4">
+                        <a href="${project.sourceUrl}" class="flex items-center gap-2 text-gray-300 hover:text-white transition">
+                          Source
+                          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          </svg>
+                        </a>
+                        <a href="${project.previewUrl}" class="flex items-center gap-2 text-gray-300 hover:text-white transition">
+                          Preview
+                          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="bg-zinc-800 rounded-xl aspect-video flex items-center justify-center">
+                      <img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover rounded-xl" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+          container.innerHTML += projectHTML;
+        });
+      }
+
+      // Generate projects on page load
+      generateProjects();
+
+      // Smooth scrolling
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+
+      // Active nav indicator
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+      function updateActiveNav() {
+        let current = "";
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (window.scrollY >= sectionTop - 100) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("text-white", "font-semibold");
+          link.classList.add("text-gray-400");
+          if (link.getAttribute("href") === "#" + current) {
+            link.classList.remove("text-gray-400");
+            link.classList.add("text-white", "font-semibold");
+          }
+        });
+      }
+
+      window.addEventListener("scroll", updateActiveNav);
+      updateActiveNav();
+
+      // Mobile menu toggle
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const mobileMenuLinks = document.querySelectorAll(".mobile-menu-link");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("open");
+      });
+
+      // Close mobile menu when clicking a link
+      mobileMenuLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("open");
+        });
+      });
+
+      // Scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, observerOptions);
+
+      // Observe all elements with animate-on-scroll class
+      document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+        observer.observe(el);
+      });
+
+      // Add hover effect to skill badges
+      document.querySelectorAll(".bg-slate-700\\/50").forEach((badge) => {
+        badge.addEventListener("mouseenter", function () {
+          this.style.transform = "translateY(-2px)";
+        });
+        badge.addEventListener("mouseleave", function () {
+          this.style.transform = "translateY(0)";
+        });
+      });
+    </script>
+  </body>
+</html>

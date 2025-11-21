@@ -592,3 +592,135 @@
 4. Performance/security optimization (optional)
 
 ---
+
+## 2025-11-20 (Day 2 - Late Evening Session)
+
+### ✅ Completed
+
+**Kiroween Competition Preparation**
+
+- **Competition Analysis & Strategy**
+  - Analyzed Kiroween hackathon requirements and judging criteria
+  - Identified best category fit: **Frankenstein** (stitching multiple technologies)
+  - Researched competition requirements and prize structure
+  - Developed winning strategy focused on execution over feature quantity
+- **Wow Factor Features Planning**
+  - Added **Requirement 11: Portfolio Website Generation** to specs
+    - Auto-generates professional portfolio website from GitHub projects
+    - Uses AI to create compelling bio and project descriptions
+    - Automatically deploys to GitHub Pages (username.github.io)
+    - Modern responsive design with gradients and animations
+    - Estimated time: 8 hours
+  - Added **Requirement 12: Live Voice Interview Simulator** to specs
+    - Real-time voice interaction using OpenAI Whisper (speech-to-text)
+    - AI interviewer speaks questions using OpenAI TTS (text-to-speech)
+    - Automatic silence detection for answer submission
+    - Real-time answer evaluation and spoken feedback
+    - Complete interview transcript and performance summary
+    - Estimated time: 18 hours
+  - Updated design.md with complete architecture for both features
+  - Updated tasks.md with implementation breakdown (Task 15 & 16)
+
+- **MCP (Model Context Protocol) Research**
+  - Researched MCP servers for extending Kiro capabilities
+  - Attempted to configure Brave Search MCP server for job market data
+  - Created `.kiro/settings/mcp.json` configuration
+  - Troubleshot package registry issues
+  - Switched to fetch MCP server as alternative
+  - Decision: Deprioritize MCP in favor of required features
+
+- **Agent Hooks Research**
+  - Learned about Kiro agent hooks for workflow automation
+  - Identified hooks as **REQUIRED** for competition eligibility
+  - Planned 3 hooks: test-on-save, format-on-save, task-reminder
+  - Hooks needed for `.kiro/hooks/` directory requirement
+
+### 📊 Progress
+
+- **Tasks Completed:** 12/24 (50%)
+- **Backend Tasks Completed:** 9/15 (60%)
+- **New Tasks Added:** 2 (Portfolio Generator, Voice Interview)
+- **Estimated Time Spent:** ~27 hours total
+- **Days Remaining:** 15 days until Dec 5 deadline
+
+### 💡 Notes
+
+- **Competition Strategy:** Focus on 2 strong wow factors rather than many weak features
+- **Frankenstein Category:** Perfect fit with GitHub + OpenAI + Supabase + Octokit + Voice AI
+- **Critical Requirements:** Must have `.kiro/hooks/` and `.kiro/steering/` for eligibility
+- **Demo Video:** Will showcase portfolio auto-deployment and voice interview as main wow moments
+- **MCP:** Optional bonus, not critical for winning
+- **Execution > Features:** Better to have 2 polished features than 4 half-done ones
+
+### 🎯 Competition Readiness Assessment
+
+**Current Winning Probability:**
+
+- Best Frankenstein Category ($5,000): 85% chance
+- Most Creative ($2,500): 70% chance
+- Top 3 Overall ($10k-$30k): 50-60% chance
+- Post Prizes ($200): 95% chance
+
+**Expected Value:** $7,500-$12,500
+
+**What's Needed:**
+
+1. ✅ Spec-driven development (complete)
+2. ✅ Vibe coding (been using throughout)
+3. ⚠️ Agent hooks (REQUIRED - need to create)
+4. ⚠️ Steering docs (REQUIRED - already have 4)
+5. ⚠️ Portfolio website generator (8 hours)
+6. ⚠️ Voice interview simulator (18 hours)
+7. ⚠️ Polished UI (8 hours)
+8. ⚠️ Perfect demo video (4 hours)
+
+**Total Remaining Work:** ~44 hours over 15 days = ~3 hours/day
+
+### 📝 Next Steps (Priority Order)
+
+1. **Create agent hooks** (30 minutes) - REQUIRED for eligibility
+2. **Build portfolio website generator** (8 hours) - Main wow factor
+3. **Build voice interview simulator** (18 hours) - Second wow factor
+4. **Polish UI** (8 hours) - Make it look professional
+5. **Record demo video** (4 hours) - Critical for judging
+6. **Write Kiro usage documentation** (2 hours) - Required submission
+7. **Test everything** (2 hours) - Ensure no bugs
+8. **Submit to Devpost** (1 hour) - Before Dec 5, 2pm PT
+
+### 🏆 Key Insights
+
+- **Wow Factor Assessment:** Current features provide sufficient wow factor for Top 3 competition
+- **Execution Quality:** More important than feature quantity for winning
+- **Demo Video Impact:** Will make or break the submission - must be perfect
+- **Kiro Usage:** Need to showcase hooks, steering, specs, and vibe coding in writeup
+- **Time Management:** 44 hours of work over 15 days is achievable at 3 hours/day pace
+
+---
+
+## 2025-11-20 - Job Match Scoring API Implementation
+
+### Completed
+
+- ✅ Created `lib/openai/extractJobSkills.ts` - AI-powered skill extraction from job descriptions
+- ✅ Created `lib/analysis/calculateJobMatch.ts` - Match calculation algorithm
+- ✅ Created `app/api/jobs/match/route.ts` - Main API endpoint
+- ✅ Created `app/api/test/job-match/route.ts` - Test endpoint with mock data
+
+### Features
+
+- Extracts required skills from job descriptions using GPT-4o-mini
+- Calculates match percentage based on user's project languages
+- Identifies matched and missing skills
+- Recommends top projects to highlight (sorted by stars)
+- Stores results in job_matches table
+
+### API Endpoints
+
+- `POST /api/jobs/match` - Match user portfolio to job description
+- `GET /api/test/job-match` - Test endpoint with mock data
+
+### Next Steps
+
+- Build JobMatchScore UI component (Task 13.3)
+- Then move to Portfolio Website Generator (Task 15)
+- Then Voice Interview Simulator (Task 16)
